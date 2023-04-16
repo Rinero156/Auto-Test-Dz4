@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -10,6 +11,12 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class CardTest {
+
+    @BeforeAll
+    void setUp() {
+        Configuration.headless = true;
+    }
+
     public String visitDate(int longDate) {
         LocalDate today = LocalDate.now();
         LocalDate method = today.plusDays(longDate);
